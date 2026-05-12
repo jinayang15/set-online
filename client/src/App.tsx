@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import GridBlock from './GridBlock';
 import './App.css'
+import { connect } from './connect'
 
 function App() {
   const [selectedColor, setSelectedColor] = useState<string>("#000000");
   const gridSize = 10;
 
+  useEffect(() => {
+    connect();
+  }, [])
 
   return (
     <div>
