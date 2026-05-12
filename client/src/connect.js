@@ -1,14 +1,13 @@
 
 const port = 1515
+let socket;
 
 export function connect() {
-    const socket = new WebSocket(`ws://localhost:${port}`)
+    socket = new WebSocket(`ws://localhost:${port}`)
 
     // Executes when the connection is successfully established.
     socket.addEventListener('open', event => {
         console.log('WebSocket connection established!');
-        // Sends a message to the WebSocket server.
-        socket.send('Hello Server!');
     });
 
     // Listen for messages and executes when a message is received from the server.
@@ -25,6 +24,11 @@ export function connect() {
     socket.addEventListener('error', error => {
         console.error('WebSocket error:', error);
     });
+}
+
+export function sendPaint(color, row, col) {
+    const data = { color, row, col }
+    socket.send(JSON.stringify(data));
 }
 
 

@@ -17,7 +17,13 @@ function App() {
       <div id="coloring-grid">
         {
           Array.from({ length: gridSize ** 2 }, (_, i) => i).map((_, i) => {
-            return <GridBlock key={`grid-block-${i}`} selectedColor={selectedColor} />
+            return (
+              <GridBlock
+                key={`grid-block-${i}`}
+                selectedColor={selectedColor}
+                row={Math.floor(i / gridSize)}
+                col={i % gridSize}
+              />)
           })
         }
       </div>
