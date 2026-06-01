@@ -1,16 +1,16 @@
 import { sendPaint } from "./connect"
 
 interface GridBlockProps {
-    defaultColor: string
+    baseColor: string
     selectedColor: string
     row: number
     col: number
 }
 
-function GridBlock({ defaultColor, selectedColor, row, col }: GridBlockProps) {
+function GridBlock({ baseColor, selectedColor, row, col }: GridBlockProps) {
     return <div
         className='grid-item'
-        style={{ backgroundColor: defaultColor }}
+        style={{ backgroundColor: baseColor }}
         onClick={() => {
             sendPaint(selectedColor, row, col)
         }}

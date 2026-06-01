@@ -8,6 +8,7 @@ function App() {
   const [gridState, setGridState] = useState(grid.toArray())
   const gridSize = 10;
 
+  // handle syncing gridState
   useEffect(() => {
     connect(gridSize);
 
@@ -28,10 +29,10 @@ function App() {
       <h1>Color Together</h1>
       <div id="coloring-grid">
         {
-          gridState.map((defaultColor, index) =>
+          gridState.map((baseColor, index) =>
             <GridBlock
               key={`grid-block-${index}`}
-              defaultColor={defaultColor}
+              baseColor={baseColor}
               selectedColor={selectedColor}
               row={Math.floor(index / gridSize)}
               col={index % gridSize}
