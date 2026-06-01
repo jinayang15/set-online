@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "y-websocket": "^2.0.4",
+    "yjs": "^13.6.31"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

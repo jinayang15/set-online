@@ -1,30 +1,42 @@
 import { useEffect, useState } from 'react'
 import GridBlock from './GridBlock';
 import './App.css'
-import { connect } from './connect'
+import { grid, connect } from './connect'
 
 function App() {
   const [selectedColor, setSelectedColor] = useState<string>("#000000");
+  const [gridState, setGridState] = useState(grid.toArray())
   const gridSize = 10;
 
   useEffect(() => {
-    connect();
+    connect(gridSize);
+
+    const observer = () => {
+      setGridState(grid.toArray())
+    }
+
+    grid.observe(observer)
+
+    return () => {
+      grid.unobserve(observer)
+    }
   }, [])
+
 
   return (
     <div>
       <h1>Color Together</h1>
       <div id="coloring-grid">
         {
-          Array.from({ length: gridSize ** 2 }, (_, i) => i).map((_, i) => {
-            return (
-              <GridBlock
-                key={`grid-block-${i}`}
-                selectedColor={selectedColor}
-                row={Math.floor(i / gridSize)}
-                col={i % gridSize}
-              />)
-          })
+          gridState.map((defaultColor, index) =>
+            <GridBlock
+              key={`grid-block-${index}`}
+              defaultColor={defaultColor}
+              selectedColor={selectedColor}
+              row={Math.floor(index / gridSize)}
+              col={index % gridSize}
+            />
+          )
         }
       </div>
       <input

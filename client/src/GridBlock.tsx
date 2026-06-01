@@ -1,19 +1,17 @@
-import { useState } from "react";
 import { sendPaint } from "./connect"
 
 interface GridBlockProps {
+    defaultColor: string
     selectedColor: string
     row: number
     col: number
 }
 
-function GridBlock({ selectedColor, row, col }: GridBlockProps) {
-    const [bgColor, setBgColor] = useState("#FFFFFF")
+function GridBlock({ defaultColor, selectedColor, row, col }: GridBlockProps) {
     return <div
         className='grid-item'
-        style={{ backgroundColor: bgColor }}
+        style={{ backgroundColor: defaultColor }}
         onClick={() => {
-            setBgColor(selectedColor)
             sendPaint(selectedColor, row, col)
         }}
     >
