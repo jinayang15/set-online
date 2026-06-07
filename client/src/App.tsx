@@ -1,45 +1,73 @@
-import { useEffect, useState } from 'react'
-import GridBlock from './GridBlock';
+import { useEffect, useState, useRef } from 'react'
 import './App.css'
-import { grid, connect } from './connect'
+import { canvas, connect, handleMouseDown, handleMouseUp, handleMouseMove, clearCanvas } from './connect'
+import { Stage, Layer, Line } from 'react-konva';
 
 function App() {
+  const [tool, setTool] = useState('brush');
+  const [canvasState, setCanvasState] = useState(canvas.toJSON());
   const [selectedColor, setSelectedColor] = useState<string>("#000000");
-  const [gridState, setGridState] = useState(grid.toArray())
-  const gridSize = 10;
+  const isDrawing = useRef(false);
 
   // handle syncing gridState
   useEffect(() => {
-    connect(gridSize);
+    connect();
 
     const observer = () => {
-      setGridState(grid.toArray())
+      console.log("Observed change!")
+
+      setCanvasState(canvas.toJSON())
     }
 
-    grid.observe(observer)
+    canvas.observeDeep(observer)
 
     return () => {
-      grid.unobserve(observer)
+      canvas.unobserveDeep(observer)
     }
   }, [])
 
+  console.log("canvasState", canvasState)
 
   return (
     <div>
       <h1>Color Together</h1>
       <div id="coloring-grid">
-        {
-          gridState.map((baseColor, index) =>
-            <GridBlock
-              key={`grid-block-${index}`}
-              baseColor={baseColor}
-              selectedColor={selectedColor}
-              row={Math.floor(index / gridSize)}
-              col={index % gridSize}
-            />
-          )
-        }
+        <Stage
+          width={window.innerWidth}
+          height={500}
+          onMouseDown={(e) => handleMouseDown(e, isDrawing, tool, selectedColor)}
+          onMousemove={(e) => handleMouseMove(e, isDrawing)}
+          onMouseup={() => handleMouseUp(isDrawing)}
+          onTouchStart={(e) => handleMouseDown(e, isDrawing, tool, selectedColor)}
+          onTouchMove={(e) => handleMouseMove(e, isDrawing)}
+          onTouchEnd={() => handleMouseUp(isDrawing)}>
+          <Layer>
+            {canvasState.map((line, i) => {
+              return <Line
+                key={i}
+                points={line.points}
+                stroke={line.color}
+                strokeWidth={5}
+                tension={0.5}
+                lineCap="round"
+                lineJoin="round"
+                globalCompositeOperation={
+                  line.tool === 'eraser' ? 'destination-out' : 'source-over'
+                }
+              />
+            })}
+          </Layer>
+        </Stage>
       </div>
+      <select
+        value={tool}
+        onChange={(e) => {
+          setTool(e.target.value);
+        }}
+      >
+        <option value="brush">Brush</option>
+        <option value="eraser">Eraser</option>
+      </select>
       <input
         type="color"
         id="color-picker"
@@ -47,6 +75,7 @@ function App() {
         value={selectedColor}
         onChange={(e) => setSelectedColor(e.target.value)}
       />
+      <button type='button' onClick={clearCanvas}>Clear</button>
       <p>Selected color: {selectedColor}</p>
     </div>
   )

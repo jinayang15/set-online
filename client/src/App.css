@@ -1,4 +1,4 @@
-#coloring-grid {
+/* #coloring-grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
@@ -9,4 +9,4 @@
   margin: 0 -1px -1px 0;
   aspect-ratio: 1;
   overflow: hidden;
-}
+} */
