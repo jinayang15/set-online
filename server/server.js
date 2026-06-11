@@ -4,12 +4,17 @@ const port = 1515;
 const wsUri = `ws://localhost:${port}`
 const server = new WebSocketServer({ port });
 const clients = new Map();
-
-const gridSize = 10;
+let board = [];
 
 server.on('connection', (socket) => {
     console.log('Client connected');
     clients.set(socket, [])
+
+    if (board.length === 0) {
+        board = [0, 1, 2]
+    }
+
+    socket.send(JSON.stringify({ type: "board-update", board }))
 
     socket.on('message', (message) => {
         clients.get(socket).push(message)

@@ -1,7 +1,6 @@
-function Card({ shape, img }) {
-
+function Card({ shape, img, selected, handleCardSelect }) {
     return (
-        <div>
+        <div className={`grid-item ${selected && "selected"}`} onClick={handleCardSelect}>
             <img src={img} height="100" alt={shape} />
         </div>
     )
