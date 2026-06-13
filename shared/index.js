@@ -1,1 +1,1 @@
-export { countSets, checkSets } from "./utils"
+export { countSets, checkSet } from "./utils.js"

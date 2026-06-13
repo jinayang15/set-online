@@ -1,4 +1,5 @@
 import { WebSocketServer } from "ws";
+import * as validation from "@set-online/shared"
 
 const port = 1515;
 const wsUri = `ws://localhost:${port}`
@@ -11,7 +12,7 @@ server.on('connection', (socket) => {
     clients.set(socket, [])
 
     if (board.length === 0) {
-        board = [0, 1, 2]
+        board = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     }
 
     socket.send(JSON.stringify({ type: "board-update", board }))
@@ -19,6 +20,8 @@ server.on('connection', (socket) => {
     socket.on('message', (message) => {
         clients.get(socket).push(message)
         console.log(`Received: ${message}`);
+        if (validation.checkSet(JSON.parse(message))) socket.send("Valid set")
+        else socket.send("Invalid set")
     });
 
     socket.on('close', () => {
