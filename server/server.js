@@ -20,8 +20,8 @@ server.on('connection', (socket) => {
     socket.on('message', (message) => {
         clients.get(socket).push(message)
         console.log(`Received: ${message}`);
-        if (validation.checkSet(JSON.parse(message))) socket.send("Valid set")
-        else socket.send("Invalid set")
+        if (validation.checkSet(JSON.parse(message))) socket.send(JSON.stringify({ message: "Valid set" }))
+        else socket.send(JSON.stringify({ message: "Invalid set" }))
     });
 
     socket.on('close', () => {
