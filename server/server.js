@@ -18,10 +18,14 @@ server.on('connection', (socket) => {
     socket.send(JSON.stringify({ type: "board-update", board }))
 
     socket.on('message', (message) => {
-        clients.get(socket).push(message)
-        console.log(`Received: ${message}`);
-        if (validation.checkSet(JSON.parse(message))) socket.send(JSON.stringify({ message: "Valid set" }))
-        else socket.send(JSON.stringify({ message: "Invalid set" }))
+        const cardValues = JSON.parse(message).cards
+        clients.get(socket).push(cardValues);
+        console.log(`Received: ${cardValues}`);
+
+        if (validation.checkSet(cardValues)) {
+            board = board.filter((val) => !cardValues.includes(val))
+        }
+        socket.send(JSON.stringify({ type: "board-update", board }))
     });
 
     socket.on('close', () => {
