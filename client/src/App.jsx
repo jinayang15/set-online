@@ -19,7 +19,7 @@ function App() {
 
   function handleCardSelect(val) {
     console.log("selected card", val)
-    if (isAwaitingServerState) return;
+    if (isAwaitingServerState || selectedCards.includes(val)) return;
 
     if (selectedCards.length === 3) {
       setSelectedCards([])
