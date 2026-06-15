@@ -12,7 +12,7 @@ server.on('connection', (socket) => {
     clients.set(socket, [])
 
     if (board.length === 0) {
-        board = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        board = [0, 1, 2, 3, 4, 5]
     }
 
     socket.send(JSON.stringify({ type: "board-update", board }))
@@ -22,7 +22,7 @@ server.on('connection', (socket) => {
         clients.get(socket).push(cardValues);
         console.log(`Received: ${cardValues}`);
 
-        if (validation.checkSet(cardValues)) {
+        if (cardValues.length === 3 && validation.checkSet(...cardValues)) {
             board = board.filter((val) => !cardValues.includes(val))
         }
         socket.send(JSON.stringify({ type: "board-update", board }))

@@ -3,6 +3,7 @@ import './App.css'
 import { connect, isAwaitingServerStore, sendSet } from './connect'
 import boardStore from './boardStore.js';
 import Card from './Card';
+import cardImages from "./images.js"
 
 function App() {
   const boardState = useSyncExternalStore(boardStore.subscribe, boardStore.getSnapshot);
@@ -36,7 +37,7 @@ function App() {
       {
         boardState.map((val) => {
           const selected = selectedCards.includes(val)
-          return <Card key={val} shape={val} img={""} selected={selected} handleCardSelect={() => handleCardSelect(val)} />
+          return <Card key={val} id={val} img={cardImages[val]} selected={selected} handleCardSelect={() => handleCardSelect(val)} />
         })
       }
     </div>
