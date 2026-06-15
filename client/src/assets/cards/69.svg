@@ -1,0 +1,26 @@
+<svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="72" height="48" fill="white"/>
+<rect x="10.5" y="10.5" width="13" height="27" rx="6.5" fill="url(#pattern0_9_288)" stroke="#16951C"/>
+<rect x="29.1667" y="10.5" width="13" height="27" rx="6.5" fill="url(#pattern1_9_288)" stroke="#16951C"/>
+<rect x="47.8333" y="10.5" width="13" height="27" rx="6.5" fill="url(#pattern2_9_288)" stroke="#16951C"/>
+<defs>
+<pattern id="pattern0_9_288" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 13 10 10)" preserveAspectRatio="none" viewBox="0 0 47 13" width="1" height="1">
+<g id="pattern0_9_288_inner">
+<path d="M0 1H47M0 3.2H47" stroke="#16951C"/>
+<path d="M0 5.4H47M0 7.6H47" stroke="#16951C"/>
+<path d="M0 9.8H47M0 12H47" stroke="#16951C"/>
+</g>
+</pattern><pattern id="pattern1_9_288" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 13 28.6667 10)" preserveAspectRatio="none" viewBox="0 0 47 13" width="1" height="1">
+<g id="pattern1_9_288_inner">
+<path d="M0 1H47M0 3.2H47" stroke="#16951C"/>
+<path d="M0 5.4H47M0 7.6H47" stroke="#16951C"/>
+<path d="M0 9.8H47M0 12H47" stroke="#16951C"/>
+</g>
+</pattern><pattern id="pattern2_9_288" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 13 47.3333 10)" preserveAspectRatio="none" viewBox="0 0 47 13" width="1" height="1">
+<g id="pattern2_9_288_inner">
+<path d="M0 1H47M0 3.2H47" stroke="#16951C"/>
+<path d="M0 5.4H47M0 7.6H47" stroke="#16951C"/>
+<path d="M0 9.8H47M0 12H47" stroke="#16951C"/>
+</g>
+</pattern></defs>
+</svg>

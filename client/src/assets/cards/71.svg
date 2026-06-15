@@ -1,0 +1,27 @@
+<svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="72" height="48" fill="white"/>
+<path d="M10.5 24L17.3333 10.5L24.1667 24L17.3333 37.5L10.5 24Z" fill="url(#pattern0_9_296)" stroke="#16951C" stroke-linejoin="round"/>
+<path d="M29.1667 24L36 10.5L42.8334 24L36 37.5L29.1667 24Z" fill="url(#pattern1_9_296)" stroke="#16951C" stroke-linejoin="round"/>
+<path d="M47.8333 24L54.6666 10.5L61.5 24L54.6666 37.5L47.8333 24Z" fill="url(#pattern2_9_296)" stroke="#16951C" stroke-linejoin="round"/>
+<defs>
+<pattern id="pattern0_9_296" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 11 10.5 10)" preserveAspectRatio="none" viewBox="0 -0.5 47 11" width="1" height="1">
+<use xlink:href="#pattern0_9_296_inner" transform="translate(0 -11)"/>
+<g id="pattern0_9_296_inner">
+<path d="M0 0H47M0 2.2H47" stroke="#16951C"/>
+<path d="M0 4.4H47M0 6.6H47" stroke="#16951C"/>
+<path d="M0 8.8H47M0 11H47" stroke="#16951C"/>
+</g>
+</pattern><pattern id="pattern1_9_296" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 13 29.1667 10.5)" preserveAspectRatio="none" viewBox="0 0 47 13" width="1" height="1">
+<g id="pattern1_9_296_inner">
+<path d="M0 1H47M0 3.2H47" stroke="#16951C"/>
+<path d="M0 5.4H47M0 7.6H47" stroke="#16951C"/>
+<path d="M0 9.8H47M0 12H47" stroke="#16951C"/>
+</g>
+</pattern><pattern id="pattern2_9_296" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 13 47.8333 10.5)" preserveAspectRatio="none" viewBox="0 0 47 13" width="1" height="1">
+<g id="pattern2_9_296_inner">
+<path d="M0 1H47M0 3.2H47" stroke="#16951C"/>
+<path d="M0 5.4H47M0 7.6H47" stroke="#16951C"/>
+<path d="M0 9.8H47M0 12H47" stroke="#16951C"/>
+</g>
+</pattern></defs>
+</svg>
