@@ -1,1 +1,1 @@
-export { countSets, checkSet } from "./utils.js"
+export { countSets, checkSet, completeSet, shuffleInPlace } from "./utils.js"

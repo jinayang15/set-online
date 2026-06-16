@@ -1,5 +1,6 @@
 import { WebSocketServer } from "ws";
 import * as validation from "@set-online/shared"
+import { shuffleInPlace, countSets } from "@set-online/shared/utils.js";
 
 const port = 1515;
 const wsUri = `ws://localhost:${port}`
@@ -9,6 +10,7 @@ const clients = new Map();
 const BOARD_START_SIZE = 12;
 const NUM_CARDS = 81;
 let board = [];
+let remainingDeck = [];
 
 
 server.on('connection', (socket) => {
@@ -16,7 +18,7 @@ server.on('connection', (socket) => {
     clients.set(socket, [])
 
     if (board.length === 0) {
-        board = generateBoard()
+        [board, remainingDeck] = generateBoard()
     }
 
     socket.send(JSON.stringify({ type: "board-update", board }))
@@ -38,13 +40,15 @@ server.on('connection', (socket) => {
 })
 
 function generateBoard() {
-    const uniqueCards = new Set()
-    while (uniqueCards.size < BOARD_START_SIZE) {
-        const num = Math.floor(Math.random() * NUM_CARDS)
-        uniqueCards.add(num)
-    }
+    let remainingDeck, board;
+    do {
+        remainingDeck = Array.from({ length: NUM_CARDS }, (_, i) => i);
+        shuffleInPlace(remainingDeck);
+        // minor optimization to splice from back
+        board = remainingDeck.splice(-BOARD_START_SIZE, BOARD_START_SIZE);
+    } while (countSets(board) === 0);
 
-    return Array.from(uniqueCards)
+    return [board, remainingDeck];
 }
 
 console.log('WebSocket server is running on', wsUri)
