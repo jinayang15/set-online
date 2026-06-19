@@ -31,6 +31,11 @@ server.on('connection', (socket) => {
         if (cardValues.length === 3 && validation.checkSet(...cardValues)) {
             board = board.filter((val) => !cardValues.includes(val))
         }
+
+        while (countSets(board) == 0 && remainingDeck) {
+            board.push(...remainingDeck.splice(-3));
+        }
+
         socket.send(JSON.stringify({ type: "board-update", board }))
     });
 
