@@ -1,9 +1,13 @@
 let board = [];
+let isGameEnd = false;
 let listeners = [];
+let snapshot = { board, isGameEnd }
 
 const boardStore = {
-    loadBoard(message) {
-        board = [...message.board]
+    loadBoard(newBoard, bool) {
+        board = [...newBoard]
+        isGameEnd = bool
+        snapshot = { board, isGameEnd }
         emitChange()
     },
     subscribe(listener) {
@@ -13,7 +17,7 @@ const boardStore = {
         }
     },
     getSnapshot() {
-        return board;
+        return snapshot;
     }
 }
 

@@ -2,7 +2,7 @@ import boardStore from "./boardStore";
 const port = 1515
 
 let connected = false;
-const ws = new WebSocket(`ws://localhost:${port}`);
+let ws;
 
 let isAwaitingServer = false;
 let serverListeners = [];
@@ -31,6 +31,7 @@ function emitChange() {
 
 function connect() {
     if (connected) return;
+    ws = new WebSocket(`ws://localhost:${port}`);
     connected = true;
 
     ws.addEventListener("open", () => {
@@ -41,7 +42,9 @@ function connect() {
         isAwaitingServerStore.setIsAwaitingServer(false);
         console.log(e.data)
         const message = JSON.parse(e.data)
-        if (message.type === "board-update") boardStore.loadBoard(message)
+        if (message.type === "board-update") {
+            boardStore.loadBoard(message.board, message.isGameEnd)
+        }
     })
 }
 

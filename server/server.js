@@ -21,7 +21,7 @@ server.on('connection', (socket) => {
         [board, remainingDeck] = generateBoard()
     }
 
-    socket.send(JSON.stringify({ type: "board-update", board }))
+    socket.send(JSON.stringify({ type: "board-update", board, isGameEnd: false }))
 
     socket.on('message', (message) => {
         const cardValues = JSON.parse(message).cards
@@ -32,11 +32,17 @@ server.on('connection', (socket) => {
             board = board.filter((val) => !cardValues.includes(val))
         }
 
-        while (countSets(board) == 0 && remainingDeck) {
+        while (board.length < BOARD_START_SIZE || (countSets(board) == 0 && remainingDeck.length > 0)) {
             board.push(...remainingDeck.splice(-3));
         }
 
-        socket.send(JSON.stringify({ type: "board-update", board }))
+        console.log("sending msg to client...")
+
+        socket.send(JSON.stringify({
+            type: "board-update",
+            board,
+            isGameEnd: countSets(board) === 0 && remainingDeck.length === 0
+        }))
     });
 
     socket.on('close', () => {
@@ -51,7 +57,7 @@ function generateBoard() {
         shuffleInPlace(remainingDeck);
         // minor optimization to splice from back
         board = remainingDeck.splice(-BOARD_START_SIZE, BOARD_START_SIZE);
-    } while (countSets(board) === 0);
+    } while (countSets(board) === 0 && remainingDeck.length > 0);
 
     return [board, remainingDeck];
 }

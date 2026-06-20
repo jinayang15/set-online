@@ -14,9 +14,7 @@ function App() {
     connect();
   }, [])
 
-  if (!isAwaitingServerState && selectedCards.length === 3) {
-    setSelectedCards([])
-  }
+  if (!isAwaitingServerState && selectedCards.length === 3) setSelectedCards([])
 
   function handleCardSelect(val) {
     console.log("selected card", val)
@@ -33,14 +31,25 @@ function App() {
   }
 
   return (
-    <div id="board">
-      {
-        boardState.map((val) => {
-          const selected = selectedCards.includes(val)
-          return <Card key={val} id={val} img={cardImages[val]} selected={selected} handleCardSelect={() => handleCardSelect(val)} />
-        })
-      }
-    </div>
+    <>
+      <div id="board">
+        {
+          boardState.board.map((val) => {
+            const selected = selectedCards.includes(val)
+            return (
+              <Card
+                key={val}
+                id={val}
+                img={cardImages[val]}
+                selected={selected}
+                handleCardSelect={() => handleCardSelect(val)}
+              />
+            )
+          })
+        }
+      </div>
+      {boardState.isGameEnd && <div id="game-over">Game Over!</div>}
+    </>
   )
 }
 
