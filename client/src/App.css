@@ -6,20 +6,20 @@
  #board {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
+   margin: 5%;
+   gap: 20px;
  }
 
  .grid-item {
    display: flex;
    justify-content: center;
    align-items: center;
-   border: 1px solid gray;
-   margin: 0 -1px -1px 0;
-   aspect-ratio: 1;
+   outline: 1px solid gray;
    overflow: hidden;
    font-size: 24px;
+   border-radius: 10px;
  }
 
  .grid-item.selected {
-   border: none;
    outline: 4px solid red;
  }
