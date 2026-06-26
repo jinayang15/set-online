@@ -29,7 +29,15 @@ server.on('connection', (socket) => {
         console.log(`Received: ${cardValues}`);
 
         if (cardValues.length === 3 && validation.checkSet(...cardValues)) {
-            board = board.filter((val) => !cardValues.includes(val))
+            for (let i = 0; i < board.length; i++) {
+                if (cardValues.includes(board[i])) {
+                    if (remainingDeck.length > 0) {
+                        board[i] = remainingDeck.pop();
+                    } else {
+                        board.splice(i, 1)
+                    }
+                }
+            }
         }
 
         while (board.length < BOARD_START_SIZE || (countSets(board) == 0 && remainingDeck.length > 0)) {
