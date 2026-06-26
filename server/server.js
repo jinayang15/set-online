@@ -34,16 +34,19 @@ server.on('connection', (socket) => {
                     if (remainingDeck.length > 0) {
                         board[i] = remainingDeck.pop();
                     } else {
-                        board.splice(i, 1)
+                        board.splice(i, 1);
+                        i--;
                     }
                 }
             }
         }
 
-        while (board.length < BOARD_START_SIZE || (countSets(board) == 0 && remainingDeck.length > 0)) {
+        while (remainingDeck.length > 0 && (board.length < BOARD_START_SIZE || countSets(board) == 0)) {
             board.push(...remainingDeck.splice(-3));
         }
-
+        console.log(remainingDeck > 0)
+        console.log(board.length < BOARD_START_SIZE)
+        console.log(countSets(board))
         console.log("sending msg to client...")
 
         socket.send(JSON.stringify({
@@ -65,7 +68,7 @@ function generateBoard() {
         shuffleInPlace(remainingDeck);
         // minor optimization to splice from back
         board = remainingDeck.splice(-BOARD_START_SIZE, BOARD_START_SIZE);
-    } while (countSets(board) === 0 && remainingDeck.length > 0);
+    } while (countSets(board) === 0);
 
     return [board, remainingDeck];
 }
