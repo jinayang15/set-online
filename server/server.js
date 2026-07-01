@@ -12,14 +12,6 @@ const NUM_CARDS = 81;
 const rooms = new Map();
 
 server.on('connection', (socket) => {
-
-
-    // if (board.length === 0) {
-    //     [board, remainingDeck] = generateBoard()
-    // }
-
-    // socket.send(JSON.stringify({ type: "board-update", board, isGameEnd: false }))
-
     socket.on('message', (message) => {
         const msg = JSON.parse(message);
 

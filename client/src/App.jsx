@@ -5,6 +5,7 @@ import boardStore from './boardStore.js';
 import Card from './Card';
 import cardImages from "./images.js"
 
+// TODO: Add new screens and follow new server.js implementation
 function App() {
   const boardState = useSyncExternalStore(boardStore.subscribe, boardStore.getSnapshot);
   const [selectedCards, setSelectedCards] = useState([]);
