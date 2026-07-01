@@ -52,7 +52,7 @@ function sendSet(cards) {
     if (cards.length !== 3) throw new Error("Incorrect number of cards")
 
     isAwaitingServerStore.setIsAwaitingServer(true);
-    ws.send(JSON.stringify({ "cards": cards }))
+    ws.send(JSON.stringify({ "type": "board-update", "cards": cards }))
 }
 
 export { connect, sendSet, isAwaitingServerStore }

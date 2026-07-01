@@ -18,6 +18,7 @@
    overflow: hidden;
    font-size: 24px;
    border-radius: 10px;
+   user-select: none;
  }
 
  .grid-item.selected {
