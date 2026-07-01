@@ -1,12 +1,12 @@
 <svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="72" height="48" fill="white"/>
-<path d="M29.1667 24L36 10.5L42.8334 24L36 37.5L29.1667 24Z" fill="url(#pattern0_8_106)" stroke="#209020" stroke-linejoin="round"/>
+<path d="M29.1667 24L36 10.5L42.8334 24L36 37.5L29.1667 24Z" fill="url(#pattern0_8_106)" stroke="#5BA300" stroke-linejoin="round"/>
 <defs>
 <pattern id="pattern0_8_106" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 13 29.1667 10.5)" preserveAspectRatio="none" viewBox="0 0 47 13" width="1" height="1">
 <g id="pattern0_8_106_inner">
-<path d="M0 1H47M0 3.2H47" stroke="#209020"/>
-<path d="M0 5.4H47M0 7.6H47" stroke="#209020"/>
-<path d="M0 9.8H47M0 12H47" stroke="#209020"/>
+<path d="M0 1H47M0 3.2H47" stroke="#5BA300"/>
+<path d="M0 5.4H47M0 7.6H47" stroke="#5BA300"/>
+<path d="M0 9.8H47M0 12H47" stroke="#5BA300"/>
 </g>
 </pattern></defs>
 </svg>

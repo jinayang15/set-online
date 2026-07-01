@@ -1,21 +1,21 @@
 <svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="72" height="48" fill="white"/>
-<path d="M20 23.5L26.8333 10L33.6667 23.5L26.8333 37L20 23.5Z" fill="url(#pattern0_8_219)" stroke="#031586" stroke-linejoin="round"/>
-<path d="M38.6667 23.5L45.5 10L52.3334 23.5L45.5 37L38.6667 23.5Z" fill="url(#pattern1_8_219)" stroke="#031586" stroke-linejoin="round"/>
+<path d="M20 23.5L26.8333 10L33.6667 23.5L26.8333 37L20 23.5Z" fill="url(#pattern0_8_219)" stroke="#0073E6" stroke-linejoin="round"/>
+<path d="M38.6667 23.5L45.5 10L52.3334 23.5L45.5 37L38.6667 23.5Z" fill="url(#pattern1_8_219)" stroke="#0073E6" stroke-linejoin="round"/>
 <defs>
 <pattern id="pattern0_8_219" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 11 20 9.5)" preserveAspectRatio="none" viewBox="0 -0.5 47 11" width="1" height="1">
 <use xlink:href="#pattern0_8_219_inner" transform="translate(0 -11)"/>
 <g id="pattern0_8_219_inner">
-<path d="M0 0H47M0 2.2H47" stroke="#031586"/>
-<path d="M0 4.39999H47M0 6.59999H47" stroke="#031586"/>
-<path d="M0 8.8H47M0 11H47" stroke="#031586"/>
+<path d="M0 0H47M0 2.2H47" stroke="#0073E6"/>
+<path d="M0 4.39999H47M0 6.59999H47" stroke="#0073E6"/>
+<path d="M0 8.8H47M0 11H47" stroke="#0073E6"/>
 </g>
 </pattern><pattern id="pattern1_8_219" patternUnits="userSpaceOnUse" patternTransform="matrix(47 0 0 11 38.6667 9.5)" preserveAspectRatio="none" viewBox="0 -0.5 47 11" width="1" height="1">
 <use xlink:href="#pattern1_8_219_inner" transform="translate(0 -11)"/>
 <g id="pattern1_8_219_inner">
-<path d="M0 0H47M0 2.2H47" stroke="#031586"/>
-<path d="M0 4.39999H47M0 6.59999H47" stroke="#031586"/>
-<path d="M0 8.8H47M0 11H47" stroke="#031586"/>
+<path d="M0 0H47M0 2.2H47" stroke="#0073E6"/>
+<path d="M0 4.39999H47M0 6.59999H47" stroke="#0073E6"/>
+<path d="M0 8.8H47M0 11H47" stroke="#0073E6"/>
 </g>
 </pattern></defs>
 </svg>
